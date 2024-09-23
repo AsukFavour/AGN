@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Actors Guild of Nigeria</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+   <nav class="bg-white shadow-lg py-4">
+    <div class="container mx-auto flex items-center justify-between px-4">
+
+      <!-- Logo Section (Left) -->
+      <div class="flex items-center space-x-3">
+        <a href="/home.html">
+          <img
+            src="images/logo.png"
+            alt="Actors Guild of Nigeria Logo"
+            class="h-12 w-auto"
+          />
+          </a
+        >
+      </div>
+
+      <!-- Hamburger Icon for Mobile (Right) -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="focus:outline-none" onclick="toggleMenu()">
+          <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation Links and Buttons (Center and Right) for Desktop -->
+      <div class="hidden md:flex items-center space-x-6 text-gray-700">
+        <a href="/executives.html" class="hover:text-yellow-500 transition duration-300">Executives</a>
+        <a href="/members.html" class="hover:text-yellow-500 transition duration-300">Members</a>
+        <a href="/about.html" class="hover:text-yellow-500 transition duration-300">About</a>
+        <a href="/contact.html" class="hover:text-yellow-500 transition duration-300">Contact</a>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="./profile.html" class="text-gray-700 font-semibold py-2 px-4 hover:text-yellow-500 transition duration-300">Login</a>
+        <a href="/signup.html" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-full font-semibold transition duration-300">
+          Register
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <div class="px-4 py-2 space-y-2">
+        <a href="/executives.html" class="block text-gray-700 hover:text-yellow-500 transition duration-300">Executives</a>
+        <a href="/members.html" class="hover:text-yellow-500 transition duration-300">Members</a>
+        <a href="/about.html" class="block text-gray-700 hover:text-yellow-500 transition duration-300">About</a>
+        <a href="/contact.html" class="block text-gray-700 hover:text-yellow-500 transition duration-300">Contact</a>
+        <a href="/profile.html" class="block text-gray-700 font-semibold hover:text-yellow-500 transition duration-300">Login</a>
+        <a href="/signup.html" class="block bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-full font-semibold transition duration-300 text-center">
+          Register
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-bold">About the Actors Guild of Nigeria</h1>
+      <p class="mt-4 text-gray-300">Uniting the voices of Nigerian actors and shaping the future of the industry.</p>
+    </div>
+  </header>
+
+  <!-- Who We Are Section -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="md:flex md:items-center">
+        <div class="md:w-1/2 px-3" >
+          <h2 class="text-3xl font-bold mb-6">Who We Are</h2>
+          <p class="text-gray-700 mb-4">The Actors Guild of Nigeria (AGN) is the umbrella body representing all professional actors in the Nigerian film and television industry. Established to promote and protect the rights of actors, AGN serves as the voice of the acting profession and works tirelessly to enhance the quality and standards of the Nigerian film industry.</p>
+          <p class="text-gray-700 mb-4">We aim to foster a professional environment that empowers our members through education, advocacy, and the promotion of best practices in the industry.</p>
+        </div>
+        <div class="md:w-1/2">
+          <img src="/img/img2.jpg" alt="AGN Members" class="w-full h-72 object-cover rounded-lg shadow-md">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission and Vision Section -->
+  <section class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <div class="md:flex md:justify-around">
+        <!-- Our Mission -->
+        <div class="md:w-1/2 md:mr-4 mb-8">
+          <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+          <p class="text-gray-700">To uphold the dignity of Nigerian actors and provide a supportive platform for the growth of acting talents while safeguarding the interests and welfare of all our members.</p>
+        </div>
+        <!-- Our Vision -->
+        <div class="md:w-1/2 md:ml-4">
+          <h2 class="text-3xl font-bold mb-6">Our Vision</h2>
+          <p class="text-gray-700">To be a leading force in the global film industry by promoting professionalism, unity, and the global recognition of Nigerian actors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- History Section -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-6 text-center">Our History</h2>
+      <div class="md:flex md:items-center">
+        <div class="md:w-1/2 md:pr-8">
+          <p class="text-gray-700 mb-4">The Actors Guild of Nigeria was founded in 1999 as a collective effort by professionals in the entertainment industry. Since its inception, AGN has become a pillar of the Nigerian film industry, advocating for the rights and well-being of actors and establishing itself as a major player in the African film scene.</p>
+          <p class="text-gray-700 mb-4">Through the years, the Guild has implemented several initiatives aimed at fostering the growth of the Nigerian film industry. From capacity-building workshops to international collaborations, AGN remains committed to enhancing the professionalism and welfare of its members.</p>
+        </div>
+        <div class="md:w-1/2">
+          <img src="/img/img3.jpg" alt="History of AGN" class="w-full h-72 object-cover rounded-lg shadow-md">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values Section -->
+  <section class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-6 text-center">Our Core Values</h2>
+      <div class="md:flex md:justify-around">
+        <!-- Integrity -->
+        <div class="md:w-1/3 text-center mb-8">
+          <h3 class="text-xl font-bold mb-4">Integrity</h3>
+          <p class="text-gray-700">We uphold the highest ethical standards in all our actions and decisions, ensuring trust and transparency in our dealings.</p>
+        </div>
+        <!-- Excellence -->
+        <div class="md:w-1/3 text-center mb-8">
+          <h3 class="text-xl font-bold mb-4">Excellence</h3>
+          <p class="text-gray-700">We are committed to delivering the highest quality in everything we do, ensuring that our members excel both locally and internationally.</p>
+        </div>
+        <!-- Unity -->
+        <div class="md:w-1/3 text-center mb-8">
+          <h3 class="text-xl font-bold mb-4">Unity</h3>
+          <p class="text-gray-700">We believe in the power of collaboration and work together as a unified body to achieve our goals and elevate the industry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Team Section -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-6 text-center">Meet the Executives</h2>
+      <div class="md:flex md:justify-between">
+        <!-- Executive 1 -->
+        <div class="md:w-1/3 text-center mb-8">
+          <img src="images/executive-1.jpg" alt="Executive 1" class="w-32 h-32 mx-auto rounded-full object-cover mb-4 shadow-md">
+          <h3 class="text-xl font-bold">John Doe</h3>
+          <p class="text-gray-600">President</p>
+        </div>
+        <!-- Executive 2 -->
+        <div class="md:w-1/3 text-center mb-8">
+          <img src="images/executive-2.jpg" alt="Executive 2" class="w-32 h-32 mx-auto rounded-full object-cover mb-4 shadow-md">
+          <h3 class="text-xl font-bold">Jane Smith</h3>
+          <p class="text-gray-600">Vice President</p>
+        </div>
+        <!-- Executive 3 -->
+        <div class="md:w-1/3 text-center mb-8">
+          <img src="images/executive-3.jpg" alt="Executive 3" class="w-32 h-32 mx-auto rounded-full object-cover mb-4 shadow-md">
+          <h3 class="text-xl font-bold">Michael Johnson</h3>
+          <p class="text-gray-600">General Secretary</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto text-center">
+      <p class="text-gray-400">&copy; 2024 Actors Guild of Nigeria. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

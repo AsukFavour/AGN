@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Actors Guild of Nigeria</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+</head>
+
+<body class="bg-gray-100">
+
+     <!-- Navigation Bar -->
+   <nav class="bg-white shadow-lg py-4">
+    <div class="container mx-auto flex items-center justify-between px-4">
+
+      <!-- Logo Section (Left) -->
+      <div class="flex items-center space-x-3">
+        <a href="/home.html">
+          <img
+            src="images/logo.png"
+            alt="Actors Guild of Nigeria Logo"
+            class="h-12 w-auto"
+          />
+        >
+      </div>
+
+      <!-- Hamburger Icon for Mobile (Right) -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="focus:outline-none" onclick="toggleMenu()">
+          <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation Links and Buttons (Center and Right) for Desktop -->
+      <div class="hidden md:flex items-center space-x-6 text-gray-700">
+        <a href="/executives.html" class="hover:text-yellow-500 transition duration-300">Executives</a>
+        <a href="/members.html" class="hover:text-yellow-500 transition duration-300">Members</a>
+        <a href="about.html" class="hover:text-yellow-500 transition duration-300">About</a>
+        <a href="/contact.html" class="hover:text-yellow-500 transition duration-300">Contact</a>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="./profile.html" class="text-gray-700 font-semibold py-2 px-4 hover:text-yellow-500 transition duration-300">Login</a>
+        <a href="/signup.html" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-full font-semibold transition duration-300">
+          Register
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <div class="px-4 py-2 space-y-2">
+        <a href="/executives.html" class="block text-gray-700 hover:text-yellow-500 transition duration-300">Executives</a>
+        <a href="/members.html" class="hover:text-yellow-500 transition duration-300">Members</a>
+        <a href="about.html" class="block text-gray-700 hover:text-yellow-500 transition duration-300">About</a>
+        <a href="/contact.html" class="block text-gray-700 hover:text-yellow-500 transition duration-300">Contact</a>
+        <a href="/profile.html" class="block text-gray-700 font-semibold hover:text-yellow-500 transition duration-300">Login</a>
+        <a href="/signup.html" class="block bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-full font-semibold transition duration-300 text-center">
+          Register
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Profile Details View Section (Visible by Default) -->
+  <section id="profileViewSection" class="py-5 bg-white">
+    <div class="container mx-auto ">
+      <h2 class="text-3xl font-bold text-center mb-8">Your Profile</h2>
+      <div class="bg-gray-100 p-8 rounded-lg shadow-md text-center h-auto ">
+        <!-- Profile Image -->
+        <img id="displayImage" src="./img/img1.jpg" alt="Profile Image" class="mx-auto w-32 h-32 rounded-full object-cover mb-4">
+
+        <!-- Profile Details -->
+        <h3 class="text-xl font-bold text-gray-700 mb-2" id="displayName">John Doe</h3>
+        <p class="text-gray-600" id="displayEmail">johndoe@gmail.com</p>
+        <p class="text-gray-600" id="displayPhone">+1234567890</p>
+        <p class="text-gray-600" id="displayAddress">123 Street, Lagos, Nigeria</p>
+
+        <!-- Edit Profile Button -->
+        <button onclick="toggleEditProfile(); populateForm();" class="mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-6 rounded-full font-semibold transition duration-300">
+          Edit Profile
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Edit Profile Form Section (Hidden by Default) -->
+  <section id="editProfileForm" class="py-12 bg-white hidden">
+    <div class="container mx-auto max-w-xl">
+      <h2 class="text-3xl font-bold text-center mb-8">Edit Your Profile</h2>
+      <form onsubmit="return handleEditSubmit()" class="bg-gray-100 p-8 rounded-lg shadow-md">
+
+        <!-- Name -->
+        <div class="mb-4">
+          <label for="editName" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+          <input id="editName" type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-4">
+          <label for="editEmail" class="block text-gray-700 font-semibold mb-2">Email Address</label>
+          <input id="editEmail" type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="mb-4">
+          <label for="editPhone" class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+          <input id="editPhone" type="tel" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" required>
+        </div>
+
+        <!-- Address -->
+        <div class="mb-4">
+          <label for="editAddress" class="block text-gray-700 font-semibold mb-2">Address</label>
+          <textarea id="editAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" required></textarea>
+        </div>
+
+        <!-- Profile Image -->
+        <div class="mb-4">
+          <label for="editProfileImage" class="block text-gray-700 font-semibold mb-2">Profile Image</label>
+          <input id="editProfileImage" type="file" accept="image/*" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        </div>
+
+        <!-- Save and Cancel Buttons -->
+        <div class="flex justify-between">
+          <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-full font-semibold transition duration-300">Save Changes</button>
+          <button type="button" onclick="toggleEditProfile()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-full font-semibold transition duration-300">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- QR Code Section -->
+  <section class="py-8 bg-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-6">Your Attendance QR Code</h2>
+      <div class="bg-gray-100 p-6 rounded-lg shadow-md inline-block">
+        <!-- QR Code Image -->
+        <img id="qrCodeImage" src="generate_qr_code_here" alt="QR Code" class="mx-auto mb-4 w-64 h-64">
+        
+        <!-- Download QR Code Button -->
+        <a id="downloadQrCode" href="generate_qr_code_here" download="attendance_qr_code.png" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-6 rounded-full font-semibold transition duration-300">
+          Download QR Code
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add Dues and Payment Section Below Profile Details -->
+<section class="py-8 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-2xl font-bold mb-6">Your Dues</h2>
+  
+      <!-- Dues List -->
+      <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-6">
+        <h3 class="text-lg font-semibold mb-4">Outstanding Dues</h3>
+        <ul id="duesList" class="space-y-3">
+          <li class="flex justify-between">
+            <span>Annual Dues 2024</span>
+            <span class="font-semibold text-red-600">Unpaid - ₦10,000</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Meeting Dues August 2024</span>
+            <span class="font-semibold text-red-600">Unpaid - ₦1,000</span>
+          </li>
+          <!-- Dynamically generate more dues here -->
+        </ul>
+  
+        <!-- Payment Button -->
+        <button onclick="handlePayment()" class="mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-6 rounded-full font-semibold transition duration-300">
+          Pay Now
+        </button>
+      </div>
+  
+      <!-- Dues Payment History -->
+      <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-4">Payment History</h3>
+        <ul id="paymentHistoryList" class="space-y-3">
+          <li class="flex justify-between">
+            <span>Annual Dues 2023</span>
+            <span class="font-semibold text-green-600">Paid - ₦10,000</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Meeting Dues July 2024</span>
+            <span class="font-semibold text-green-600">Paid - ₦1,000</span>
+          </li>
+          <!-- Dynamically generate more payment history here -->
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+ 
+  
+
+   <!-- Footer -->
+   <footer class="bg-gray-900 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p class="text-sm">&copy; 2024 Actors Guild of Nigeria. All rights reserved.</p>
+      <div class="flex justify-center space-x-4 mt-4">
+        <a href="#" class="hover:text-yellow-500">Privacy Policy</a>
+        <a href="#" class="hover:text-yellow-500">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+<script src="./js/qrcode.js"></script>
+<script src="./js/profile.js"></script>
+</html>

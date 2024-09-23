@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for a Movie Set</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: black;
+            background-color: #121212;
+            background-image: url('img2.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        form {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #f0f0f0;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+        .button {
+            background-color: #f0f0f0;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #333333;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Register for a Movie Set</h2>
+    <form onsubmit="event.preventDefault(); window.location.href='userqr.html';">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="movie-set">Select Movie Set:</label>
+        <select id="movie-set" name="movie-set">
+            <option value="movie1">Movie 1</option>
+            <option value="movie2">Movie 2</option>
+            <option value="movie3">Movie 3</option>
+            <option value="movie4">Movie 4</option>
+            <option value="movie5">Movie 5</option>
+        </select>
+
+        <button type="submit" class="button">Register</button>
+    </form>
+
+</body>
+
+</html>

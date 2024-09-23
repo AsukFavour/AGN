@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Movie Set QR Code</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #f0f0f0;
+            background-color: #121212;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 50px auto;
+            color: #f0f0f0;
+        }
+
+        .qr-code {
+            margin-top: 20px;
+        }
+
+        .qr-code img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .button {
+            background-color: #f0f0f0;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #333333;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Your QR Code</h2>
+        <div class="qr-code">
+            <img src="qrcode.png" alt="Your QR Code">
+        </div>
+        <div class="message">
+            <p>Thank you for registering. Please use this QR code for your movie set.</p>
+        </div>
+        <button class="button" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+
+</body>
+
+</html>
