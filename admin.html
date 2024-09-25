@@ -1,73 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #f0f0f0;
-            background-color: #121212;
-            text-align: center;
-        }
-
-        form {
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 400px;
-            margin: auto;
-            margin-top: 50px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #f0f0f0;
-        }
-
-        input[type="email"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #333333;
-            border-radius: 5px;
-            background-color: #333333;
-            color: #ffffff;
-        }
-
-        .button {
-            background-color: #f0f0f0;
-            color: #121212;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .button:hover {
-            background-color: #333333;
-            color: #ffffff;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGN Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-100">
 
-<body>
+  <!-- Main Wrapper -->
+  <div class="min-h-screen flex">
 
-    <h2>Admin Login</h2>
-    <form onsubmit="event.preventDefault(); window.location.href='dashboard.html';">
-        <label for="admin-email">Email:</label>
-        <input type="email" id="admin-email" name="admin-email" required>
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-800 text-white">
+      <div class="p-6 text-center font-bold">AGN Admin</div>
+      <nav>
+        <a href="#dashboard" class="block px-4 py-2 hover:bg-gray-700">Dashboard</a>
+        <a href="#members" class="block px-4 py-2 hover:bg-gray-700">Members</a>
+        <a href="#executives" class="block px-4 py-2 hover:bg-gray-700">Executives</a>
+        <a href="#dues" class="block px-4 py-2 hover:bg-gray-700">Dues & Payments</a>
+        <a href="#attendance" class="block px-4 py-2 hover:bg-gray-700">Attendance</a>
+      </nav>
+    </aside>
 
-        <label for="admin-password">Password:</label>
-        <input type="password" id="admin-password" name="admin-password" required>
+    <!-- Main Content -->
+    <main class="flex-1 p-6 bg-gray-100">
 
-        <button type="submit" class="button">Login</button>
-    </form>
+      <!-- Dashboard Section -->
+      <section id="dashboard">
+        <h1 class="text-2xl font-bold mb-4">Dashboard Overview</h1>
+        <div class="grid grid-cols-3 gap-6">
+          <!-- Total Members -->
+          <div class="bg-white shadow-md p-6 rounded-lg">
+            <h2 class="text-lg font-semibold">Total Members</h2>
+            <p class="text-2xl font-bold" id="total-members">150</p>
+          </div>
+          <!-- Outstanding Dues -->
+          <div class="bg-white shadow-md p-6 rounded-lg">
+            <h2 class="text-lg font-semibold">Outstanding Dues</h2>
+            <p class="text-2xl font-bold">$5000</p>
+          </div>
+          <!-- Executives -->
+          <div class="bg-white shadow-md p-6 rounded-lg">
+            <h2 class="text-lg font-semibold">Executives</h2>
+            <p class="text-2xl font-bold">12</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Members Section -->
+      <section id="members" class="mt-12">
+        <h2 class="text-xl font-bold mb-4">Member Management</h2>
+        <!-- Register Member Button -->
+        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg mb-4" onclick="openMemberForm()">
+          Register New Member
+        </button>
+        <!-- Member Table -->
+        <table class="min-w-full bg-white shadow-md rounded-lg">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 border-b">Name</th>
+              <th class="px-4 py-2 border-b">Email</th>
+              <th class="px-4 py-2 border-b">Phone</th>
+              <th class="px-4 py-2 border-b">Address</th>
+              <th class="px-4 py-2 border-b">Movies</th>
+              <th class="px-4 py-2 border-b">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="member-table">
+            <!-- Dynamic rows will be added here -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Executives Section -->
+      <section id="executives" class="mt-12">
+        <h2 class="text-xl font-bold mb-4">Executive Management</h2>
+        <button class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg mb-4" onclick="openExecutiveForm()">
+          Register New Executive
+        </button>
+        <!-- Executive Table -->
+        <table class="min-w-full bg-white shadow-md rounded-lg">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 border-b">Image</th>
+              <th class="px-4 py-2 border-b">Name</th>
+              <th class="px-4 py-2 border-b">Role</th>
+              <th class="px-4 py-2 border-b">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="executive-table">
+            <!-- Dynamic rows will be added here -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Dues and Payment Section -->
+      <section id="dues" class="mt-12">
+        <h2 class="text-xl font-bold mb-4">Dues & Payments</h2>
+        <!-- Outstanding Dues -->
+        <div class="bg-white shadow-md p-6 rounded-lg">
+          <h3 class="text-lg font-semibold">Outstanding Dues</h3>
+          <ul id="dues-list" class="list-disc pl-5">
+            <li>John Doe - $100</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Attendance Section -->
+      <section id="attendance" class="mt-12">
+        <h2 class="text-xl font-bold mb-4">Attendance</h2>
+        <button class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg mb-4" onclick="scanQRCode()">
+          Scan Member QR Code
+        </button>
+        <!-- Attendance History -->
+        <div class="bg-white shadow-md p-6 rounded-lg">
+          <h3 class="text-lg font-semibold">Attendance History</h3>
+          <ul id="attendance-list" class="list-disc pl-5">
+            <li>John Doe - Present at meeting on 15th October 2024</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal for Registering Member -->
+  <div id="member-modal" class="fixed inset-0 hidden bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg w-1/3">
+      <h2 class="text-xl font-bold mb-4">Register New Member</h2>
+      <form id="member-form">
+        <div class="mb-4">
+          <label class="block text-sm font-bold mb-2">Name</label>
+          <input type="text" id="member-name" class="w-full border border-gray-300 p-2 rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-bold mb-2">Email</label>
+          <input type="email" id="member-email" class="w-full border border-gray-300 p-2 rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-bold mb-2">Phone Number</label>
+          <input type="tel" id="member-phone" class="w-full border border-gray-300 p-2 rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-bold mb-2">Address</label>
+          <input type="text" id="member-address" class="w-full border border-gray-300 p-2 rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-bold mb-2">Movies</label>
+          <textarea id="member-movies" class="w-full border border-gray-300 p-2 rounded" rows="3"></textarea>
+        </div>
+        <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg" onclick="addMember()">
+          Save Member
+        </button>
+        <button type="button" class="ml-2 bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg" onclick="closeMemberForm()">
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for Registering Executive -->
+  <div id="executive-modal" class="fixed inset-0 hidden bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg w-1/3">
+      <h2 class="text-xl font-bold mb-4">Register New Executive</h2>
+      <form id="executive-form">
+        <div class="mb-4">
+          <label class="block text-sm font-bold mb-2">Image URL</label>
+          <input type="url" id="executive-image" class="w-full border border-gray-300 p-2 rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-bold mb-2">Name</label>
+          <input type="text" id="executive-name" class="w-full border border-gray-300 p-2 rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-bold mb-2">Role</label>
+          <input type="text" id="executive-role" class="w-full border border-gray-300 p-2 rounded" required>
+        </div>
+        <button type="button" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg" onclick="addExecutive()">
+          Save Executive
+        </button>
+        <button type="button" class="ml-2 bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg" onclick="closeExecutiveForm()">
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+
+  
+
+  <!-- JavaScript Section -->
+  <script>
+    // Open and close modal functions
+    function openMemberForm() {
+      document.getElementById('member-modal').classList.remove('hidden');
+    }
+
+    function closeMemberForm() {
+      document.getElementById('member-modal').classList.add('hidden');
+    }
+
+    function openExecutiveForm() {
+      document.getElementById('executive-modal').classList.remove('hidden');
+    }
+
+    function closeExecutiveForm() {
+      document.getElementById('executive-modal').classList.add('hidden');
+    }
+
+    // Function to add member to table
+    function addMember() {
+      const name = document.getElementById('member-name').value;
+      const email = document.getElementById('member-email').value;
+      const phone = document.getElementById('member-phone').value;
+      const address = document.getElementById('member-address').value;
+      const movies = document.getElementById('member-movies').value;
+
+      const table = document.getElementById('member-table');
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2 border-b">${name}</td>
+        <td class="px-4 py-2 border-b">${email}</td>
+        <td class="px-4 py-2 border-b">${phone}</td>
+        <td class="px-4 py-2 border-b">${address}</td>
+        <td class="px-4 py-2 border-b">${movies}</td>
+        <td class="px-4 py-2 border-b">
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded" onclick="editMember(this)">Edit</button>
+        </td>
+      `;
+      table.appendChild(row);
+      closeMemberForm();
+    }
+
+    // Function to add executive to table
+    function addExecutive() {
+      const image = document.getElementById('executive-image').value;
+      const name = document.getElementById('executive-name').value;
+      const role = document.getElementById('executive-role').value;
+
+      const table = document.getElementById('executive-table');
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2 border-b"><img src="${image}" alt="${name}" class="w-10 h-10 rounded-full"></td>
+        <td class="px-4 py-2 border-b">${name}</td>
+        <td class="px-4 py-2 border-b">${role}</td>
+        <td class="px-4 py-2 border-b">
+          <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded" onclick="removeExecutive(this)">Delete</button>
+        </td>
+      `;
+      table.appendChild(row);
+      closeExecutiveForm();
+    }
+
+    // Dummy function for editing members
+    function editMember(button) {
+      alert("Edit member details");
+    }
+
+    // Dummy function for removing executives
+    function removeExecutive(button) {
+      const row = button.closest('tr');
+      row.remove();
+    }
+  </script>
 
 </body>
-
 </html>

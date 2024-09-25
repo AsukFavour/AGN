@@ -5,71 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGN Contact Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        function toggleMenu() {
-          const menu = document.getElementById('mobile-menu');
-          menu.classList.toggle('hidden');
-        }
-      </script>
+    <link rel="stylesheet" href="./src/input.css">
 </head>
 <body class="bg-gray-100">
 
     <!-- Navigation Bar -->
-   <nav class="bg-white shadow-lg py-4">
-    <div class="container mx-auto flex items-center justify-between px-4">
+    <nav class="bg-white shadow-lg py-4">
+      <div class="container mx-auto flex items-center justify-between px-4">
+        <!-- Logo Section (Left) -->
+        <div class="flex items-center space-x-3">
+          <a href="/home.html">
+            <img
+              src="images/logo.png"
+              alt="Actors Guild of Nigeria Logo"
+              class="h-12 w-auto"
+            />
+          </a>
+        </div>
 
-      <!-- Logo Section (Left) -->
-      <div class="flex items-center space-x-3">
-        <a href="/home.html">
-          <img
-            src="images/logo.png"
-            alt="Actors Guild of Nigeria Logo"
-            class="h-12 w-auto"
-          />
-          </a
-        >
+        <!-- Hamburger Icon for Mobile (Right) -->
+        <div class="md:hidden">
+          <button
+            id="menu-toggle"
+            class="focus:outline-none"
+            onclick="toggleMenu()"
+          >
+            <svg
+              class="w-6 h-6 text-gray-700"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Navigation Links and Buttons (Center and Right) for Desktop -->
+        <div class="hidden md:flex items-center space-x-6 text-gray-700">
+          <a
+            href="/executives.html"
+            class="hover:text-yellow-500 transition duration-300"
+            >Executives</a
+          >
+          <a
+            href="/members.html"
+            class="hover:text-yellow-500 transition duration-300"
+            >Members</a
+          >
+          <a
+            href="/about.html"
+            class="hover:text-yellow-500 transition duration-300"
+            >About</a
+          >
+          <a
+            href="/contact.html"
+            class="hover:text-yellow-500 transition duration-300"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Profile Icon with Dropdown -->
+        <div class="relative md:flex items-center space-x-4 dropd">
+          <div class="relative">
+            <button
+              id="profile-button"
+              class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center focus:outline-none"
+              onclick="toggleDropdown()"
+            >
+              <img
+                src="images/profile-icon.png"
+                alt="Profile"
+                class="rounded-full w-8 h-8"
+              />
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div
+              id="profile-dropdown"
+              class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg py-2 hidden"
+            >
+              <a
+                href="/profile.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Profile</a
+              >
+              <a
+                href="/login.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Login</a
+              >
+              <a
+                href="/signup.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Sign Up</a
+              >
+              <a
+                href="/logout.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hidden"
+                id="logout"
+                >Logout</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Hamburger Icon for Mobile (Right) -->
-      <div class="md:hidden">
-        <button id="menu-toggle" class="focus:outline-none" onclick="toggleMenu()">
-          <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
-        </button>
+      <!-- Mobile Menu (Hidden by default) -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+        <div class="px-4 py-2 space-y-2">
+          <a
+            href="/executives.html"
+            class="block text-gray-700 hover:text-yellow-500 transition duration-300"
+            >Executives</a
+          >
+          <a
+            href="/members.html"
+            class="hover:text-yellow-500 transition duration-300"
+            >Members</a
+          >
+          <a
+            href="/about.html"
+            class="block text-gray-700 hover:text-yellow-500 transition duration-300"
+            >About</a
+          >
+          <a
+            href="/contact.html"
+            class="block text-gray-700 hover:text-yellow-500 transition duration-300"
+            >Contact</a
+          >
+        </div>
       </div>
-
-      <!-- Navigation Links and Buttons (Center and Right) for Desktop -->
-      <div class="hidden md:flex items-center space-x-6 text-gray-700">
-        <a href="/executives.html" class="hover:text-yellow-500 transition duration-300">Executives</a>
-        <a href="/members.html" class="hover:text-yellow-500 transition duration-300">Members</a>
-        <a href="/about.html" class="hover:text-yellow-500 transition duration-300">About</a>
-        <a href="/contact.html" class="hover:text-yellow-500 transition duration-300">Contact</a>
-      </div>
-
-      <div class="hidden md:flex items-center space-x-4">
-        <a href="./profile.html" class="text-gray-700 font-semibold py-2 px-4 hover:text-yellow-500 transition duration-300">Login</a>
-        <a href="/signup.html" class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-full font-semibold transition duration-300">
-          Register
-        </a>
-      </div>
-    </div>
-
-    <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-      <div class="px-4 py-2 space-y-2">
-        <a href="/executives.html" class="block text-gray-700 hover:text-yellow-500 transition duration-300">Executives</a>
-        <a href="/members.html" class="hover:text-yellow-500 transition duration-300">Members</a>
-        <a href="/about.html" class="block text-gray-700 hover:text-yellow-500 transition duration-300">About</a>
-        <a href="/contact.html" class="block text-gray-700 hover:text-yellow-500 transition duration-300">Contact</a>
-        <a href="/profile.html" class="block text-gray-700 font-semibold hover:text-yellow-500 transition duration-300">Login</a>
-        <a href="/signup.html" class="block bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-full font-semibold transition duration-300 text-center">
-          Register
-        </a>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
     <!-- Container -->
     <div class="max-w-7xl mx-auto p-6 sm:p-4">
@@ -148,6 +221,6 @@
       <p class="text-gray-400">&copy; 2024 Actors Guild of Nigeria. All rights reserved.</p>
     </div>
   </footer>
-
+  <script src="./js/script.js"></script>
 </body>
 </html>

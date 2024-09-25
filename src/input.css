@@ -44,3 +44,13 @@ video {
 .card:hover .overlay {
   opacity: 1;
 }
+
+
+  /* Profile icon styles */
+  #profile-button img {
+    border: 2px solid gray; /* Circular border */
+  }
+  
+  .dropd{
+    z-index: 1;
+  }
