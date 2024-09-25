@@ -11,69 +11,10 @@
 <body class="bg-gray-100">
 
      <!-- Navigation Bar -->
-       <nav class="bg-white shadow-lg py-4">
+     <nav class="bg-white shadow-lg py-4">
       <div class="container mx-auto flex items-center justify-between px-4">
-        <!-- Logo Section (Left) -->
-        <div class="flex items-center space-x-3">
-          <a href="/home.html">
-            <img
-              src="images/logo.png"
-              alt="Actors Guild of Nigeria Logo"
-              class="h-12 w-auto"
-            />
-          </a>
-        </div>
-
-        <!-- Hamburger Icon for Mobile (Right) -->
-        <div class="md:hidden">
-          <button
-            id="menu-toggle"
-            class="focus:outline-none"
-            onclick="toggleMenu()"
-          >
-            <svg
-              class="w-6 h-6 text-gray-700"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <!-- Navigation Links and Buttons (Center and Right) for Desktop -->
-        <div class="hidden md:flex items-center space-x-6 text-gray-700">
-          <a
-            href="/executives.html"
-            class="hover:text-yellow-500 transition duration-300"
-            >Executives</a
-          >
-          <a
-            href="/members.html"
-            class="hover:text-yellow-500 transition duration-300"
-            >Members</a
-          >
-          <a
-            href="/about.html"
-            class="hover:text-yellow-500 transition duration-300"
-            >About</a
-          >
-          <a
-            href="/contact.html"
-            class="hover:text-yellow-500 transition duration-300"
-            >Contact</a
-          >
-        </div>
-
-        <!-- Profile Icon with Dropdown -->
-        <div class="relative md:flex items-center space-x-4 dropd">
+        <!-- Profile Icon with Dropdown (Left for Mobile) -->
+        <div class="relative flex items-center space-x-2 md:dropd order-1 md:order-none dropd">
           <div class="relative">
             <button
               id="profile-button"
@@ -86,11 +27,11 @@
                 class="rounded-full w-8 h-8"
               />
             </button>
-
-            <!-- Dropdown Menu -->
+    
+            <!-- Dropdown Menu (Left for Mobile) -->
             <div
               id="profile-dropdown"
-              class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg py-2 hidden"
+              class="absolute left-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg py-2 hidden md:right-0 md:left-6"
             >
               <a
                 href="/profile.html"
@@ -116,8 +57,67 @@
             </div>
           </div>
         </div>
+    
+        <!-- Logo Section (Center) -->
+        <div class="flex items-center justify-center order-2">
+          <a href="/home.html">
+            <img
+              src="./img/logo.png"
+              alt="Actors Guild of Nigeria Logo"
+              class="h-12 w-auto"
+            />
+          </a>
+        </div>
+    
+        <!-- Hamburger Icon for Mobile (Right) -->
+        <div class="md:hidden order-3">
+          <button
+            id="menu-toggle"
+            class="focus:outline-none"
+            onclick="toggleMenu()"
+          >
+            <svg
+              class="w-6 h-6 text-gray-700"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        </div>
+    
+        <!-- Navigation Links (Hidden on Mobile) -->
+        <div class="hidden md:flex items-center space-x-6 text-gray-700 order-none">
+          <a
+            href="/executives.html"
+            class="hover:text-yellow-500 transition duration-300"
+            >Executives</a
+          >
+          <a
+            href="/members.html"
+            class="hover:text-yellow-500 transition duration-300"
+            >Members</a
+          >
+          <a
+            href="/about.html"
+            class="hover:text-yellow-500 transition duration-300"
+            >About</a
+          >
+          <a
+            href="/contact.html"
+            class="hover:text-yellow-500 transition duration-300"
+            >Contact</a
+          >
+        </div>
       </div>
-
+    
       <!-- Mobile Menu (Hidden by default) -->
       <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
         <div class="px-4 py-2 space-y-2">
@@ -128,7 +128,7 @@
           >
           <a
             href="/members.html"
-            class="hover:text-yellow-500 transition duration-300"
+            class="block text-gray-700 hover:text-yellow-500 transition duration-300"
             >Members</a
           >
           <a
